@@ -16,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/jaankuu/tournament-live-scoring-backend/issues"
   },
-  "homepage": "https://github.com/jaankuu/tournament-live-scoring-backend#readme"
+  "homepage": "https://github.com/jaankuu/tournament-live-scoring-backend#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^8.6.0",
+    "sequelize": "^6.6.2",
+    "sequelize-cli": "^6.2.0"
+  }
 }
