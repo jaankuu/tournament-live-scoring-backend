@@ -20,7 +20,13 @@ module.exports = (sequelize, DataTypes) => {
     time: { type: DataTypes.INTEGER },
     location: { type: DataTypes.STRING },
     description: { type: DataTypes.STRING },
-    players: { type: DataTypes.INTEGER },
+    players: { 
+      type: DataTypes.INTEGER,
+      references: {
+        model: "users",
+        key: "id"
+      }
+    },
     active: { type: DataTypes.BOOLEAN, defaultValue: false }
   }, {
     sequelize,
