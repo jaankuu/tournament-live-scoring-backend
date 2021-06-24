@@ -1,7 +1,8 @@
 {
   "development": {
     "url": "postgres://jcusisbx:yul8Wm34NK1OhVML0tmafPkVHbZn65wa@hattie.db.elephantsql.com/jcusisbx",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "operatorsAliases": "0"
   },
   "test": {
     "username": "root",
