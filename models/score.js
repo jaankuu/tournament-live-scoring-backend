@@ -15,7 +15,13 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   score.init({
-    userId: { type: DataTypes.INTEGER },
+    userId: { 
+      type: DataTypes.INTEGER,
+      references: {
+        model: "users",
+        key: "id"
+      }
+    },
     eventId: {
        type: DataTypes.INTEGER,
        references: {

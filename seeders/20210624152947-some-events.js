@@ -6,15 +6,17 @@ module.exports = {
       "events",
       [
         {
-          name: "CF Open",
-          description: "First tournament of the year!",
+          name: "Groningen Open",
+          location: "Groningen",
+          description: "First tournament in Groningen!",
           active: true,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
           name: "Amsterdam Open",
-          description: "This is the Amsterdam Open! Date TBD",
+          location: "Amsterdam Sloterpark",
+          description: "TBD",
           active: false,
           createdAt: new Date(),
           updatedAt: new Date(),
