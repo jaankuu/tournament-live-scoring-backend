@@ -1,10 +1,14 @@
 const express = require("express");
 const loggerMiddleWare = require("morgan");
 const corsMiddleWare = require("cors");
+const authRouter = require("./routers/auth");
+const authMiddleWare = require("./auth/middleware");
 const Events = require("./models").event;
+const Users = require("./models").user;
 const Scores = require("./models").score;
+const { PORT } = require("./config/constants");
+
 const app = new express()
-const PORT = 4000
 
 app.use(loggerMiddleWare("dev"));
 const bodyParserMiddleWare = express.json();
@@ -59,3 +63,53 @@ app.get("/events/:id", async (req, res) => {
     console.log(error.message)
   }
 })
+
+app.post("/createEvent", async (req,res) => {
+  try {
+    const { name, time, location, description, userId } = req.body
+
+    const allEvents = await Events.findAll()
+    const newEventId = Math.max(allEvents?.map(event => event.id)) + 1
+
+    const newEvent = await Events.create({
+      name: name,
+      id: newEventId,
+      time: time,
+      location: location,
+      description: description,
+      userId: userId
+    })
+    return res.status(201).send({ message: "Event created", newEvent})
+  } catch(error) {
+    console.log(error.message)
+  }
+})
+
+
+app.use("/", authRouter);
+
+// POST endpoint for testing purposes, can be removed
+app.post("/echo", (req, res) => {
+  res.json({
+    youPosted: {
+      ...req.body,
+    },
+  });
+});
+
+// POST endpoint which requires a token for testing purposes, can be removed
+app.post("/authorized_post_request", authMiddleWare, (req, res) => {
+  // accessing user that was added to req by the auth middleware
+  const user = req.user;
+  // don't send back the password hash
+  delete user.dataValues["password"];
+
+  res.json({
+    youPosted: {
+      ...req.body,
+    },
+    userFoundWithToken: {
+      ...user.dataValues,
+    },
+  });
+});

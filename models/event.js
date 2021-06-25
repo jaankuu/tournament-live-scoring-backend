@@ -19,12 +19,13 @@ module.exports = (sequelize, DataTypes) => {
     time: { type: DataTypes.INTEGER },
     location: { type: DataTypes.STRING },
     description: { type: DataTypes.STRING },
-    players: { 
+    userId: { 
       type: DataTypes.INTEGER,
       references: {
         model: "users",
         key: "id"
       }
+    
     },
     active: { type: DataTypes.BOOLEAN, defaultValue: false }
   }, {

@@ -6,10 +6,10 @@ module.exports = {
       "scores",
       [
         {
-          userId: 1,
-          eventId: 1,
-          scores: 345,
-          totalScore: 59,
+          eventId: 2,
+          player: 2,
+          eachScore: 3452233,
+          totalScore: 65,
           createdAt: new Date(),
           updatedAt: new Date(),
         },

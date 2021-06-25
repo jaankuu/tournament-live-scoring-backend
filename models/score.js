@@ -11,25 +11,18 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       score.belongsTo(models.event)
-      score.belongsTo(models.user)
     }
   };
   score.init({
-    userId: { 
-      type: DataTypes.INTEGER,
-      references: {
-        model: "users",
-        key: "id"
-      }
-    },
     eventId: {
        type: DataTypes.INTEGER,
        references: {
          model: "events",
-         key: "id"       
-        }
+         key: "id"
+       }
       },
-    scores: { type: DataTypes.INTEGER },
+    player: { type: DataTypes.INTEGER },
+    eachScore: { type: DataTypes.INTEGER },
     totalScore: { type: DataTypes.INTEGER }
   }, {
     sequelize,
