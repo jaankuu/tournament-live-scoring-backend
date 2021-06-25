@@ -8,13 +8,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      userId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "users",
-          key: "id"
-        }
-      },
       eventId: {
         type: Sequelize.INTEGER,
         references: {
@@ -22,7 +15,10 @@ module.exports = {
           key: "id"
         }
       },
-      scores: {
+      player: {
+        type: Sequelize.INTEGER
+      },
+      eachScore: {
         type: Sequelize.INTEGER
       },
       totalScore: {
@@ -42,3 +38,12 @@ module.exports = {
     await queryInterface.dropTable('scores');
   }
 };
+
+
+// eventId: { 
+//   type: DataTypes.INTEGER,
+//   references: {
+//     model: "events",
+//     key: "id"
+//   }
+// },

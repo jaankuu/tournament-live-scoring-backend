@@ -21,7 +21,7 @@ module.exports = {
       description: {
         type: Sequelize.STRING
       },
-      players: {
+      userId: {
         type: Sequelize.INTEGER,
         references: {
           model: "users",

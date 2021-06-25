@@ -10,14 +10,14 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      user.hasMany(models.event)
     }
   };
   user.init({
     name: { type: DataTypes.STRING, unique: true, allowNull: false },
     email: { type: DataTypes.STRING, unique: true, allowNull: false },
     password: { type: DataTypes.STRING, allowNull: false},
-    points: { type:DataTypes.INTEGER },
+    points: { type: DataTypes.INTEGER },
     isAdmin: { type: DataTypes.BOOLEAN, allowNull: false, defaultValue: false }
   }, {
     sequelize,
