@@ -38,12 +38,3 @@ module.exports = {
     await queryInterface.dropTable('scores');
   }
 };
-
-
-// eventId: { 
-//   type: DataTypes.INTEGER,
-//   references: {
-//     model: "events",
-//     key: "id"
-//   }
-// },
