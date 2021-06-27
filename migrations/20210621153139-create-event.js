@@ -12,8 +12,8 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      time: {
-        type: Sequelize.INTEGER
+      date: {
+        type: Sequelize.STRING
       },
       location: {
         type: Sequelize.STRING

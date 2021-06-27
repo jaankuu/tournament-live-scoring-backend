@@ -25,6 +25,9 @@ module.exports = {
       points: {
         type: Sequelize.INTEGER
       },
+      eventId: {
+        type: Sequelize.INTEGER,
+      },
       isAdmin: {
         type: Sequelize.BOOLEAN,
         allowNull: false,

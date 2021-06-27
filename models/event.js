@@ -16,17 +16,9 @@ module.exports = (sequelize, DataTypes) => {
   };
   event.init({
     name: { type: DataTypes.STRING, allowNull: false },
-    time: { type: DataTypes.INTEGER },
+    date: { type: DataTypes.STRING },
     location: { type: DataTypes.STRING },
     description: { type: DataTypes.STRING },
-    userId: { 
-      type: DataTypes.INTEGER,
-      references: {
-        model: "users",
-        key: "id"
-      }
-    
-    },
     active: { type: DataTypes.BOOLEAN, defaultValue: false }
   }, {
     sequelize,

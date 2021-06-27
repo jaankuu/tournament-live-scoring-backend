@@ -66,15 +66,17 @@ app.get("/events/:id", async (req, res) => {
 
 app.post("/createEvent", async (req,res) => {
   try {
-    const { name, time, location, description, userId } = req.body
+    const { name, date, location, description, userId } = req.body
 
     const allEvents = await Events.findAll()
     const newEventId = Math.max(allEvents?.map(event => event.id)) + 1
 
+    const formattedDate = date.split("T")[0]
+
     const newEvent = await Events.create({
       name: name,
       id: newEventId,
-      time: time,
+      date: formattedDate,
       location: location,
       description: description,
       userId: userId
