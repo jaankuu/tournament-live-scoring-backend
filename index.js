@@ -64,6 +64,24 @@ app.get("/events/:id", async (req, res) => {
   }
 })
 
+// Get points
+
+app.get("/points", async (req,res) => {
+  try {
+
+    const points = await Users.findAll({
+      attributes: ["name", "points"]
+    })
+    res.status(200).send({message: "ok", points})
+  } catch(error) {
+    console.log(error.message)
+  }
+})
+
+
+
+
+
 app.post("/createEvent", async (req,res) => {
   try {
     const { name, date, location, description, userId } = req.body
